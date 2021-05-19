@@ -1,0 +1,7 @@
+{
+  "name": "akuru-liyamu",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
