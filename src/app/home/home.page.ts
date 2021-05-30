@@ -24,6 +24,12 @@ export class HomePage {
     this.navCtrl
   }
 
+  speech() {
+    // this.tts.speak('Hello World')
+    //     .then(() => console.log('Success'))
+    //     .catch((reason: any) => console.log(reason));
+  }
+
 
 
 }

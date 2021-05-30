@@ -39,6 +39,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.Keyboard"
       ]
+    },
+    {
+      "id": "cordova-plugin-tts.tts",
+      "file": "plugins/cordova-plugin-tts/www/tts.js",
+      "pluginId": "cordova-plugin-tts",
+      "clobbers": [
+        "TTS"
+      ]
     }
   ];
   module.exports.metadata = {
@@ -47,6 +55,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-ionic-webview": "4.2.1",
-    "cordova-plugin-ionic-keyboard": "2.2.0"
+    "cordova-plugin-ionic-keyboard": "2.2.0",
+    "cordova-plugin-tts": "0.2.3"
   };
 });

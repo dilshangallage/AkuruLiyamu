@@ -26,14 +26,28 @@
   text-decoration: none;
 }
 
-ion-content{
-  --background: #fff url('../../assets/home01.jpg');
+ion-content {
+  height: 100%;
 }
 
-ion-button {
-  height: 20rem;
-  width: 20rem;
-  --background: #fff url('../../assets/sinhala-letters.png');
+.main-view{
+  background-image: url('../../assets/home01.jpg');
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#sinhala-letters {
+  //height: 20rem;
+  //width: 20rem;
+  //--background: #fff url('../../assets/sinhala-akuru.png');
+  //background-position: center;
+  //background-repeat: no-repeat;
+  //background-size: cover;
 }
 .box {
   align-self: flex-end;
@@ -87,10 +101,10 @@ ion-button {
   width: 1px;
 }
 .circle {
-  --bgc: cornflowerblue;
+  //--bgc: cornflowerblue;
   --w: 150px;
   align-items: center;
-  background-color: var(--bgc);
+  //background-color: var(--bgc);
   border-radius: 50%;
   color: #FFF;
   display: flex;
@@ -100,7 +114,7 @@ ion-button {
   width: var(--w);
 }
 .a-pulse {
-  --animdur: 1s;
+  --animdur: 1.5s;
   --animn: pulse;
   will-change: transform;
 }
@@ -142,7 +156,7 @@ ion-button {
 }
 
 [data-reduced-motion]:checked + label::before {
-  background-color: cornflowerblue;
+  //background-color: cornflowerblue;
 }
 
 /* KEYFRAMES */
@@ -1348,20 +1362,75 @@ body {
 .w1 {
   @extend %wind;
   top: 50px;
-  @include animation(movewind1 0.6s infinite linear);
+  @include animation(movewind1 1s infinite linear);
 }
 
 .w2 {
   @extend %wind;
   top: 400px;
-  @include animation(movewind2 1.2s infinite linear);
+  @include animation(movewind2 1.8s infinite linear);
   z-index: 7;
 }
 
 .w3 {
   @extend %wind;
   top: 600px;
-  @include animation(movewind3 0.8s infinite linear);
+  @include animation(movewind3 1.2s infinite linear);
   z-index: 7;
 }
 
+.button-set {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+}
+
+.button-item {
+  display: flex;
+  justify-content: center;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+#sinhala-akuru {
+  margin: auto;
+  width: 200px;
+  height: 100px;
+  color: white;
+  animation: mymove 8s infinite;
+}
+#english-akuru {
+  margin: auto;
+  width: 200px;
+  height: 100px;
+  color: white;
+  animation: mymove 8s infinite;
+}
+
+#numbers {
+  margin: auto;
+  width: 200px;
+  height: 100px;
+  color: white;
+  animation: mymove 8s infinite;
+}
+
+#kids-games {
+  margin: auto;
+  width: 200px;
+  height: 100px;
+  color: white;
+  animation: mymove 8s infinite;
+}
+
+@keyframes mymove {
+  60% {transform: rotate(360deg);}
+}
+
+.button-solid {
+  --background: #0c1631c4 !important;
+  --color: #ffffff;
+}

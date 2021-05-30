@@ -1,217 +1,47 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<!--  <ion-toolbar>-->
+<!--    <ion-title>-->
+<!--      Blank-->
+<!--    </ion-title>-->
+<!--  </ion-toolbar>-->
 </ion-header>
-<ion-content [fullscreen]="true">
-  <ion-row>
-    <ion-col>
+<ion-content>
+<div class="main-view">
+    <div class="w1"></div>
+    <div class="w2"></div>
+    <div class="w3"></div>
+    <div >
+        <ion-row class="button-set">
+            <ion-col col-md-3>
+                <div class="button-item">
+                    <ion-button id="sinhala-letters" class="circle a-pulse button-solid" data-animation="alternate" style="--bgc:purple;" routerLink="/white-board">
+                        <img id="sinhala-akuru" src="../../assets/sinhala-akuru.png" alt="Nature" class="responsive"/>
+                    </ion-button>
+                </div>
+            </ion-col>
+            <ion-col col-md-3>
+                <div class="button-item">
+                    <ion-button id="english-letters" class="circle a-pulse button-solid" data-animation="alternate" style="--bgc:purple;">
+                        <img id="english-akuru" src="../../assets/english-letters.png" alt="Nature" class="responsive"/>
+                    </ion-button>
+                </div>
+            </ion-col>
 
-<!--      <ion-button id="sinhala-letters" class="box bounce-3">Sinhala Akuru</ion-button>-->
-      <ion-button id="sinhala-letters" class="circle a-pulse" data-animation="alternate" style="--bgc:purple;" routerLink="/white-board">Sinhala Akuru</ion-button>
-    </ion-col>
-    <ion-col>
-      <button id="english-letters" class="circle a-pulse" data-animation="alternate" style="--bgc:purple;">English Letters</button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col>
-      <button class="circle a-pulse" data-animation="alternate" style="--bgc:purple;">Ilakkam</button>
-    </ion-col>
-    <ion-col>
-      <button class="circle a-pulse" data-animation="alternate" style="--bgc:purple;">Numbers</button></ion-col>
-  </ion-row>
-  <div class="circle a-pulse" data-animation="alternate" style="--bgc:purple;">I will fade in/out</div>
-<!--  <div class="circle a-slide" data-animation style="&#45;&#45;bgc:orange;&#45;&#45;animdel:750ms;">-->
-<!--    <ion-button id="cycle-ride"></ion-button>-->
-<!--  </div>-->
-  <div class="box">
-    <!-- The Whole Bike -->
-    <div class="bike">
-      <!-- Components of the bike -->
-      <!-- Back wheel -->
-      <div class="back-wheel">
-        <!-- Inside the wheel -->
-        <div class="cassette">
-          <!-- Spokes ~ the numbers are clock number orientation-->
-          <div class="_12-6"></div>
-          <div class="_1-7"></div>
-          <div class="_2-8"></div>
-          <div class="_3-9"></div>
-          <div class="_4-10"></div>
-          <div class="_5-11"></div>
-        </div>
-      </div>
-      <div class="hub"></div>
-
-      <!-- Front wheel -->
-      <div class="front-wheel">
-        <!-- Inside the wheel -->
-        <div class="cassette">
-          <!-- Spokes -->
-          <div class="_12-6"></div>
-          <div class="_1-7"></div>
-          <div class="_2-8"></div>
-          <div class="_3-9"></div>
-          <div class="_4-10"></div>
-          <div class="_5-11"></div>
-          <div class="_6-12"></div>
-        </div>
-      </div>
-
-      <!-- Handlebar -->
-      <div class="handlebar">
-        <div class="bar headset"></div>
-        <div class="bar stem"></div>
-        <div class="bar hb1"></div>
-        <div class="bar hb2"></div>
+            <ion-col col-md-3>
+                <div class="button-item">
+                    <ion-button class="circle a-pulse button-solid" data-animation="alternate" style="--bgc:purple;">
+                        <img id="numbers" src="../../assets/bb-removebg-preview.png" alt="Nature" class="responsive"/>
+                    </ion-button>
+                </div>
+            </ion-col>
+            <ion-col col-md-3>
+                <div class="button-item">
+                    <ion-button class="circle a-pulse button-solid" data-animation="alternate" style="--bgc:purple;" (click)="speech()">
+                        <img id="kids-games" src="../../assets/icons-removebg-preview.png" alt="Nature" class="responsive"/>
+                    </ion-button>
+                </div>
+            </ion-col>
+        </ion-row>
     </div>
-
-    <!-- Seat -->
-    <div class="seat">
-    </div>
-
-    <!-- Bike frame -->
-    <div class="body-frame">
-      <div class="bk-upper"></div>
-      <div class="bk-lower"></div>
-      <div class="fr-upper"></div>
-      <div class="fr-lower"></div>
-      <div class="seat-frame">
-        <div class="seatpost"></div>
-      </div>
-      <div class="handlebar-frame"></div>
-    </div>
-
-
-    <!-- Crankset -->
-    <div class="crank">
-    </div>
-
-    <div class="crankset">
-    </div>
-
-    <!-- Chain -->
-    <div class="chain-upp"></div>
-    <div class="chain-lo"></div>
-
-    <!-- Bike Shadow -->
-    <div class="bike-shadow"></div>
-
-    <!-- Streaks of ground-light -->
-    <div class="streak1"></div>
-    <div class="streak2"></div>
-    <div class="streak3"></div>
-    <div class="streak4"></div>
-
-
-    <!--Girl-->
-    <div class="girl">
-      <!--HEAD-->
-      <div class="face">
-        <div class="l-eye"></div>
-        <div class="r-eye"></div>
-        <div class="nose"></div>
-        <div class="mouth"></div>
-        <div class="ear">
-          <div class="ear-shadow"></div>
-        </div>
-        <div class="l-cheek"></div>
-        <div class="r-hair"></div>
-        <div class="l-hair"></div>
-        <div class="jaw-shadow"></div>
-      </div>
-
-      <div class="ponytail"></div>
-
-      <div class="neck">
-        <div class="neck-shadow"></div>
-      </div>
-
-
-      <!-- TORSO -->
-      <div class="belly">
-        <div class="back-shadow"></div>
-      </div>
-      <div class="pelvic-reg"></div>
-
-      <div class="chest">
-        <!-- ARMS -->
-        <div class="r-arm">
-          <div class="r-sleeve"></div>
-          <div class="r-a-shadow"></div>
-        </div>
-
-
-      </div>
-
-      <div class="l-arm">
-        <div class="l-sleeve"></div>
-        <div class="l-a-shadow"></div>
-      </div>
-
-      <!-- Legs -->
-      <!-- Right Leg -->
-      <div class="r-thigh">
-        <div class="r-pants"></div>
-        <div class="r-shadow"></div>
-        <div class="r-calf">
-          <!-- Sock -->
-          <div class="sock">
-            <div class="blue-top"></div>
-            <!-- Shoe -->
-            <div class="shoe-base">
-              <div class="shoe-lining"></div>
-              <div class="toecap"></div>
-              <div class="heelcap"></div>
-              <div class="shoetongue"></div>
-              <div class="lace1"></div>
-              <div class="lace2"></div>
-              <div class="pedal"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Left Leg -->
-      <div class="l-thigh">
-        <div class="l-shadow"></div>
-        <div class="l-calf">
-          <div class="darker sock">
-            <div class="blue-top" id="dark-blue"></div>
-            <div class="shoe-base">
-              <div class="shoe-lining"></div>
-              <div class="toecap"></div>
-              <div class="heelcap"></div>
-              <div class="shoetongue"></div>
-              <div class="lace lace1"></div>
-              <div class="lace lace2"></div>
-              <div class="pedal"></div>
-            </div>
-          </div>
-        </div>
-        <div class="l-pants"></div>
-      </div>
-
-
-
-
-      <!-- End of Girl -->
-    </div>
-
-
-
-    <!-- End of Bike -->
-  </div>
-
-  <!-- Environment -->
-  <!-- Wind -->
-  <div class="w1"></div>
-  <div class="w2"></div>
-  <div class="w3"></div>
-
-  <!-- End of box -->
-  </div>
+</div>
 </ion-content>
