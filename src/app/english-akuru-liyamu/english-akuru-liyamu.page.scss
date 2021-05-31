@@ -1,0 +1,24 @@
+canvas-draw {
+  height: 100%;
+  width: 100%;
+  display: block;
+  #top-toolbar{
+    position: absolute;
+    top: 0;
+  }
+  #bottom-toolbar{
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.color-block {
+  height: 40px;
+}
+
+.toolbar-background {
+  background-color: red!important;
+}
+.new-background-color{
+  --background: #0d5171;
+}

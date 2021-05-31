@@ -1,7 +1,66 @@
-canvas {
-  border: 1px solid rgb(187, 178, 178);
+//canvas {
+//  border: 1px solid rgb(187, 178, 178);
+//
+//
+//}
+//
+//.color-block {
+//  height: 40px;
+//}
+.box-ion-row {
+  z-index: 10;
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+.box {
+  top: 20%;
+  width: 200px;
+  height: 100px;
+  background: url(../../assets/icon/20200614151037156.png) no-repeat;
+  animation: bear 1s steps(8) infinite,w 6s linear forwards;
+  position: absolute;
+}
+@keyframes bear {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -1600px 0;
+  }
+}
+@keyframes w {
+  0% {}
+  100% {
+    transform: translateX(500px);
+  }
 }
 
-.color-block {
-  height: 40px;
+@keyframes taadaa {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
+
+.slider-animation ion-slide {
+  //animation: taadaa 2s;
+}
+
+.new-background-color{
+  --background: #0d5171;
+}
+
+.ion-color-primary {
+  --color: white !important;
+}
+
+.button-colrs {
+  --background: rgba(104, 126, 161, 0.79) !important;
+}
+
+

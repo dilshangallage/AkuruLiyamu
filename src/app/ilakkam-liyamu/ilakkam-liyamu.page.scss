@@ -1,0 +1,50 @@
+canvas-draw {
+  height: 100%;
+  width: 100%;
+  display: block;
+  #top-toolbar{
+    position: absolute;
+    top: 0;
+  }
+  #bottom-toolbar{
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.color-block {
+  height: 40px;
+}
+
+.toolbar-background {
+  background-color: red!important;
+}
+.new-background-color{
+  --background: #0d5171;
+}
+
+.signature-pad-classs {
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../../assets/Ilakkam-liyamu/My Post(53).png');
+}
+
+.wrapper {
+  position: relative;
+  width: 600px;
+  height: 200px;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.signature-pad canvas{
+  width:100%;
+  height:100%;
+  background-color: white;
+}

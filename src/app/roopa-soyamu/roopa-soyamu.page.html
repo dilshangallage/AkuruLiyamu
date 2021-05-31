@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-back-button color="primary" class="ion-color-primary ">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title  style="color: white">roopa-soyamu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div style="height: 75%;">
+<ion-row style="height: 10%;">
+  <img  [src]="imgUrl">
+  </ion-row>
+</div>
+  <div style="height: 25%;">
+    <ion-row style="height: 100%">
+      <ion-col size="1"></ion-col>
+      <ion-col size="2" *ngFor="let answer of answerList" ><ion-button class="answer-button button-solid" style="background-color: #174c4f">{{answer}}</ion-button></ion-col>
+      <ion-col size="1"></ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer style="background-color: #083e58d6"></ion-footer>

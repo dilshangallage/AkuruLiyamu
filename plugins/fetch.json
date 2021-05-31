@@ -56,5 +56,37 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-speechrecognition": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-speechrecognition"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-media": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-media@5.0.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-file": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-file@6.0.2"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-nativeaudio": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-nativeaudio@^3.0.9"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

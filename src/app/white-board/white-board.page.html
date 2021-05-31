@@ -1,28 +1,155 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>white-board</ion-title>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-back-button color="primary" class="ion-color-primary ">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title style="color: white">සිංහල අකුරු හෝඩිය </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<!--<ion-content>-->
+<!--  <ion-row>-->
+<!--    <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable-->
+<!--             (click)="selectColor(color)"></ion-col>-->
+<!--  </ion-row>-->
+<!--  <ion-radio-group [(ngModel)]="selectedColor">-->
+<!--    <ion-row>-->
+<!--      <ion-col *ngFor="let color of colors" class="ion-text-center">-->
+<!--        <ion-radio [value]="color"></ion-radio>-->
+<!--      </ion-col>-->
+<!--    </ion-row>-->
+<!--  </ion-radio-group>-->
+
+<!--  <ion-range min="2" max="20" color="primary" [(ngModel)]="lineWidth">-->
+<!--    <ion-icon size="small" slot="start" name="brush"></ion-icon>-->
+<!--    <ion-icon slot="end" name="brush"></ion-icon>-->
+<!--  </ion-range>-->
+
+<!--  <div style="text-align: center;height: 80%">-->
+<!--    <canvas #imageCanvas (mousedown)="startDrawing($event)" (touchstart)="startDrawing($event)"-->
+<!--            (touchmove)="moved($event)" (mousemove)="moved($event)" (mouseup)="endDrawing()" (touchend)="endDrawing()"></canvas>-->
+<!--  </div>-->
+
+<!--</ion-content>-->
 <ion-content>
-  <ion-row>
-    <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable
-             (click)="selectColor(color)"></ion-col>
+  <div style="height: 98%; background-color: #dddedc45;">
+    <ion-slides style="margin-top: 1%; height: 95%" #mySlider pager="false" class="slider-animation">
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(2).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(3).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(4).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(5).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(6).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(7).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(8).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(9).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(10).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(11).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(12).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(13).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(14).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(15).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(16).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(17).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(18).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(19).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(20).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(21).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(22).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(23).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(24).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(25).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(26).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(27).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(28).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(29).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(30).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(31).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(32).png">
+      </ion-slide>
+      <ion-slide>
+        <img src="../../assets/sinhala-letters/My%20Post(33).png">
+      </ion-slide>
+
+
+    </ion-slides>
+
+  </div>
+
+  <ion-row *ngIf="show_animation" class="box-ion-row">
+    <div class="box" ></div>
   </ion-row>
-  <ion-radio-group [(ngModel)]="selectedColor">
-    <ion-row>
-      <ion-col *ngFor="let color of colors" class="ion-text-center">
-        <ion-radio [value]="color"></ion-radio>
-      </ion-col>
-    </ion-row>
-  </ion-radio-group>
 
-  <ion-range min="2" max="20" color="primary" [(ngModel)]="lineWidth">
-    <ion-icon size="small" slot="start" name="brush"></ion-icon>
-    <ion-icon slot="end" name="brush"></ion-icon>
-  </ion-range>
-
-  <canvas #imageCanvas (mousedown)="startDrawing($event)" (touchstart)="startDrawing($event)"
-          (touchmove)="moved($event)" (mousemove)="moved($event)" (mouseup)="endDrawing()" (touchend)="endDrawing()"></canvas>
 
 </ion-content>
+<ion-footer style="background-color: #083e58d6">
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" float-left ion-button  color="primary" class="btnPrev button-colrs" (click)="prev()" [disabled]="number==2">Prev</ion-button>
+    </ion-col>
+    <ion-col style="text-align: end">
+      <ion-button type="submit" float-right ion-button color="primary" class="btnNext button-colrs" (click)="next()" [disabled]="number==33">Next</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

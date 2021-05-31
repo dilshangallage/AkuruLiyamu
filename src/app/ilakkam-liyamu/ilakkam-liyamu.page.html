@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar class="new-background-color">
+    <ion-buttons slot="start">
+      <ion-back-button color="primary" class="ion-color-primary ">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title  style="color: white">ඉලක්කම් ලියමු  </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!--<div>-->
+  <!--  <ion-slides>-->
+  <!--    <ion-slide #mySlider>-->
+  <!--      <canvas #myCanvas1 (touchstart)="handleStart($event)" (touchmove)="handleMove($event)" (touched)="handleEnd($event)"></canvas>-->
+  <!--    </ion-slide>-->
+  <!--    <ion-slide>-->
+  <!--      <canvas #myCanvas2 (touchstart)="handleStart($event)" (touchmove)="handleMove($event)" (touched)="handleEnd($event)"></canvas>-->
+  <!--    </ion-slide>-->
+  <!--  </ion-slides>-->
+  <!--</div>-->
+
+  <div>
+    <ion-row>
+      <ion-range min="2" max="20" color="primary" [(ngModel)]="lineWidth" (ionChange)="changePenSize()">
+        <ion-icon size="small" slot="start" name="brush"></ion-icon>
+        <ion-icon slot="end" name="brush"></ion-icon>
+      </ion-range>
+    </ion-row>
+  </div>
+  <div style="height: 80%">
+    <ion-row>
+      <ion-col size="2">
+        <ion-row *ngFor="let color of colors" [style.background]="color" class="color-block" tappable
+                 (click)="selectColor(color)">
+          <!--          <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable-->
+          <!--                   (click)="selectColor(color)"></ion-col>-->
+        </ion-row>
+        <!--        <ion-radio-group [(ngModel)]="selectedColor">-->
+        <!--          <ion-row *ngFor="let color of colors" class="ion-text-center">-->
+        <!--&lt;!&ndash;            <ion-col *ngFor="let color of colors" class="ion-text-center">&ndash;&gt;-->
+        <!--              <ion-radio [value]="color"></ion-radio>-->
+        <!--&lt;!&ndash;            </ion-col>&ndash;&gt;-->
+        <!--          </ion-row>-->
+        <!--        </ion-radio-group>-->
+      </ion-col>
+      <ion-col size="10" class="">
+<!--        <canvas #myCanvas1 (touchstart)="handleStart($event)" (touchmove)="handleMove($event)" (touched)="handleEnd($event)"></canvas>-->
+        <signature-pad id="signature-pad" class="signature-pad-class" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"
+                       (window:resize)="resizeSignaturePad()"></signature-pad>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+<ion-footer style="background-color: #083e58d6">
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" float-left ion-button  color="primary" class="btnPrev" (click)="prev()" [disabled]="number==53">Prev</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button type="submit" float-left ion-button  color="primary" class="btnPrev" (click)="playMusic()" *ngIf="!play_music">
+        <ion-icon name="musical-notes-outline"></ion-icon>
+      </ion-button>
+      <ion-button type="submit" float-left ion-button  color="primary" class="btnPrev" (click)="stopMusic()" *ngIf="play_music">
+        <ion-icon name="play-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col style="text-align: end">
+      <ion-button type="submit" float-right ion-button color="primary" class="btnNext" (click)="refresh()">
+        <ion-icon name="refresh-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <ion-col style="text-align: end">
+      <ion-button type="submit" float-right ion-button color="primary" class="btnNext" (click)="next()" [disabled]="number==63">Next</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
