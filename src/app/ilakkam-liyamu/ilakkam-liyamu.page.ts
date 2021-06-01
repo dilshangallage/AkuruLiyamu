@@ -46,29 +46,13 @@ export class IlakkamLiyamuPage implements OnInit {
   constructor(private platform: Platform, private nativeAudio: NativeAudio, private alertCtrl: AlertController) {
     // this.presentAlert('OK');
     platform.ready().then(() => {
-      this.nativeAudio.preloadComplex('uniqueId2', 'assets/mp3/sinhala-akuru/sinhala-hodiya.mp3', 1, 1, 0).then(function(success) {
+      this.nativeAudio.preloadComplex('uniqueId2', 'assets/mp3/background-music/song2.mp3', 1, 1, 0).then(function(success) {
         // this.presentAlert('Success');
       }, function(err) {
         // this.presentAlert('Error');
       });
 
     });
-
-    // this.nativeAudio.preloadComplex('trackID', 'mp3/sinhala-akuru/sinhala-hodiya.mp3', 1, 1, 0).then(function() {
-    //   let alert = this.alertCtrl.create({
-    //     title: 'Low battery',
-    //     subTitle: '10% of battery remaining',
-    //     buttons: ['Dismiss']
-    //   });
-    //   alert.present();
-    // }, function(err) {
-    //   let alert = this.alertCtrl.create({
-    //     title: 'Error',
-    //     subTitle: '10% of battery remaining',
-    //     buttons: ['Dismiss']
-    //   });
-    //   alert.present();
-    // });
 
     this.availableColours = [
       '#1abc9c',
@@ -80,7 +64,6 @@ export class IlakkamLiyamuPage implements OnInit {
   }
 
   ngOnInit() {
-    // this.presentAlert('YOOOOOOOOOOOOOOOOOOOO');
 
   }
 
@@ -99,15 +82,18 @@ export class IlakkamLiyamuPage implements OnInit {
     // this.signaturePad.clear();
     this.loadImage();
   }
+  ionViewDidEnter() {
+    setTimeout(() => {
+      this.loadMusic();
+    }, 500);
+    // this.nativeAudio.loop('homePageBackground');
+  }
 
   ngAfterViewInit(){
 
     var wrapper = document.getElementById("signature-pad");
     this.canvasElement = wrapper.querySelector("canvas");
-    //
-    // this.renderer.setElementAttribute(this.canvasElement, 'width', this.platform.width() + '');
-    // this.renderer.setElementAttribute(this.canvasElement, 'height', this.platform.height() + '');
-    // this.canvasElement = this.canvas.nativeElement;
+
     this.canvasElement.width = this.platform.width() -100 + '';
     this.canvasElement.height = this.platform.height() -200 + '';
     this.signaturePad.set('minWidth', this.lineWidth); // set szimek/signature_pad options at runtime
@@ -137,56 +123,12 @@ export class IlakkamLiyamuPage implements OnInit {
     this.loadImage();
 
   }
-  //
-  // refresh() {
-  //   this.loadImage();
-  // }
-  //
-  // changeColour(colour){
-  //   this.currentColour = colour;
-  // }
-  //
+
   changeSize(size){
     this.lineWidth = size;
     this.signaturePad.set('minWidth', size);
   }
-  //
-  // handleStart(ev){
-  //
-  //   this.lastX = ev.touches[0].pageX;
-  //   this.lastY = ev.touches[0].pageY;
-  // }
-  //
-  // handleMove(ev){
-  //
-  //   let ctx = this.canvasElement.getContext('2d');
-  //   let currentX = ev.touches[0].pageX;
-  //   let currentY = ev.touches[0].pageY;
-  //
-  //   ctx.beginPath();
-  //   ctx.lineJoin = "round";
-  //   ctx.moveTo(this.lastX, this.lastY);
-  //   ctx.lineTo(currentX, currentY);
-  //   ctx.closePath();
-  //   ctx.strokeStyle = this.selectedColor;
-  //   ctx.lineWidth = this.lineWidth;
-  //   ctx.stroke();
-  //
-  //   this.lastX = currentX;
-  //   this.lastY = currentY;
-  //
-  // }
-  //
-  // handleEnd(ev){
-  //
-  //   console.log(ev);
-  // }
-  //
-  // clearCanvas(){
-  //   let ctx = this.canvasElement.getContext('2d');
-  //   ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
-  // }
-  //
+
   loadImage() {
     var background = new Image();
     background.src = '../../assets/Ilakkam-liyamu/My%20Post('+this.number+').png';
@@ -197,38 +139,30 @@ export class IlakkamLiyamuPage implements OnInit {
       ctx.drawImage(background,0,0, this.canvasElement.width, this.canvasElement.height);
     }
   }
-  //
-  // selectColor(color) {
-  //   this.selectedColor = color;
-  // }
-  //
-  // async playMusic() {
-  //
-  //   this.play_music = true;
-  //   console.log('&&&&&&&&')
-  //   this.nativeAudio.play('uniqueId1');
-  //   this.nativeAudio.stop('uniqueId2');
-  //   this.presentAlert(this.nativeAudio);
-  //
-  // }
-  //
-  // stopMusic() {
-  //   this.play_music = false;
-  //   this.nativeAudio.stop('uniqueId1');
-  //   this.nativeAudio.play('uniqueId2');
-  //   this.presentAlert(this.nativeAudio);
-  // }
-  //
-  // async presentAlert(msg) {
-  //   const alert = await this.alertCtrl.create({
-  //     cssClass: 'basic-alert',
-  //     header: 'Alert Header',
-  //     subHeader: 'Alert Subtitle',
-  //     message: msg,
-  //     buttons: ['OK']
-  //   });
-  //
-  //   await alert.present();
-  // }
+
+
+  playMusic() {
+    this.play_music = true;
+    this.nativeAudio.stop('uniqueId2');
+  }
+
+  stopMusic() {
+    this.play_music = false;
+    this.nativeAudio.play("uniqueId2");
+  }
+
+  refresh() {
+    this.signaturePad.clear();
+    this.loadImage();
+  }
+
+  loadMusic() {
+    this.nativeAudio.play('uniqueId2');
+    this.nativeAudio.loop('uniqueId2');
+  }
+
+  ionViewWillLeave() {
+    this.nativeAudio.stop('uniqueId2');
+  }
 
 }

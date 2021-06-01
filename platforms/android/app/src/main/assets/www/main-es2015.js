@@ -111,6 +111,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_media_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/media/ngx */ "9YJ4");
 /* harmony import */ var _ionic_native_file_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/file/ngx */ "FAH8");
 /* harmony import */ var _ionic_native_native_audio_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/native-audio/ngx */ "fLLL");
+/* harmony import */ var angular2_signaturepad__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! angular2-signaturepad */ "HnZm");
+
 
 
 
@@ -130,7 +132,7 @@ AppModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"], css_animator__WEBPACK_IMPORTED_MODULE_7__["AnimatesDirective"]],
         entryComponents: [],
-        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"]],
+        imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(), _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"], angular2_signaturepad__WEBPACK_IMPORTED_MODULE_13__["SignaturePadModule"]],
         providers: [{ provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] },
             css_animator__WEBPACK_IMPORTED_MODULE_7__["AnimationService"],
             _ionic_native_text_to_speech_ngx__WEBPACK_IMPORTED_MODULE_8__["TextToSpeech"],

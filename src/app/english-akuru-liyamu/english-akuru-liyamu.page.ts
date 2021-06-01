@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {AlertController, IonSlides, Platform} from "@ionic/angular";
 import {NativeAudio} from "@ionic-native/native-audio/ngx";
+import {SignaturePad} from "angular2-signaturepad";
 
 @Component({
   selector: 'app-english-akuru-liyamu',
@@ -8,7 +9,15 @@ import {NativeAudio} from "@ionic-native/native-audio/ngx";
   styleUrls: ['./english-akuru-liyamu.page.scss'],
 })
 export class EnglishAkuruLiyamuPage implements OnInit {
+  @ViewChild(SignaturePad) signaturePad: SignaturePad;
 
+  private signaturePadOptions: Object = { // passed through to szimek/signature_pad constructor
+
+    'minWidth': 5,
+    'color': 'red',
+    'canvasWidth': 600,
+    'canvasHeight': 600
+  };
 
   @ViewChild('mySlider', {static: true})  slides: IonSlides;
 
@@ -34,12 +43,9 @@ export class EnglishAkuruLiyamuPage implements OnInit {
   play_music = false;
 
   constructor(private platform: Platform, private nativeAudio: NativeAudio, private alertCtrl: AlertController) {
-    this.presentAlert('OK');
     platform.ready().then(() => {
-      this.nativeAudio.preloadComplex('uniqueId2', 'assets/mp3/sinhala-akuru/sinhala-hodiya.mp3', 1, 1, 0).then(function(success) {
-        this.presentAlert('Success');
+      this.nativeAudio.preloadComplex('uniqueId4', 'assets/mp3/background-music/song5.mp3', 1, 1, 0).then(function(success) {
       }, function(err) {
-        this.presentAlert('Error');
       });
 
     });
@@ -70,22 +76,53 @@ export class EnglishAkuruLiyamuPage implements OnInit {
   }
 
   ngOnInit() {
-    this.presentAlert('YOOOOOOOOOOOOOOOOOOOO');
 
+  }
+
+  changePenSize() {
+    this.signaturePad.set('minWidth', this.lineWidth);
+  }
+
+  selectColor(color) {
+    this.signaturePad.set('penColor', color);
+  }
+
+  resizeSignaturePad() {
+    // this.signaturePad.set('canvasWidth', document.getElementById("sign_canvas").offsetWidth);
+    this.canvasElement.width = this.platform.width() -100 + '';
+    this.canvasElement.height = this.platform.height() -200 + '';
+    // this.signaturePad.clear();
+    this.loadImage();
+  }
+
+  ionViewDidEnter() {
+    setTimeout(() => {
+      this.loadMusic();
+    }, 500);
+    // this.nativeAudio.loop('homePageBackground');
   }
 
   ngAfterViewInit(){
 
+    var wrapper = document.getElementById("signature-pad");
+    this.canvasElement = wrapper.querySelector("canvas");
 
-    // this.canvasElement = this.canvas.nativeElement;
-    //
-    // this.renderer.setElementAttribute(this.canvasElement, 'width', this.platform.width() + '');
-    // this.renderer.setElementAttribute(this.canvasElement, 'height', this.platform.height() + '');
-    this.canvasElement = this.canvas.nativeElement;
-    this.canvasElement.width = 400 + '';
-    this.canvasElement.height = 600 + '';
+    this.canvasElement.width = this.platform.width() -100 + '';
+    this.canvasElement.height = this.platform.height() -200 + '';
+    this.signaturePad.set('minWidth', this.lineWidth); // set szimek/signature_pad options at runtime
+    this.signaturePad.clear();
     this.loadImage();
   }
+  drawComplete() {
+    // will be notified of szimek/signature_pad's onEnd event
+    console.log(this.signaturePad.toDataURL());
+  }
+
+  drawStart() {
+    // will be notified of szimek/signature_pad's onBegin event
+    console.log('begin drawing');
+  }
+
 
   next(){
     ( this.number < 52)? this.number += 1: this.number = 52;
@@ -100,52 +137,9 @@ export class EnglishAkuruLiyamuPage implements OnInit {
 
   }
 
-  refresh() {
-    this.loadImage();
-  }
-
-  changeColour(colour){
-    this.currentColour = colour;
-  }
-
   changeSize(size){
     this.lineWidth = size;
-  }
-
-  handleStart(ev){
-
-    this.lastX = ev.touches[0].pageX;
-    this.lastY = ev.touches[0].pageY;
-  }
-
-  handleMove(ev){
-
-    let ctx = this.canvasElement.getContext('2d');
-    let currentX = ev.touches[0].pageX;
-    let currentY = ev.touches[0].pageY;
-
-    ctx.beginPath();
-    ctx.lineJoin = "round";
-    ctx.moveTo(this.lastX, this.lastY);
-    ctx.lineTo(currentX, currentY);
-    ctx.closePath();
-    ctx.strokeStyle = this.selectedColor;
-    ctx.lineWidth = this.lineWidth;
-    ctx.stroke();
-
-    this.lastX = currentX;
-    this.lastY = currentY;
-
-  }
-
-  handleEnd(ev){
-
-    console.log(ev);
-  }
-
-  clearCanvas(){
-    let ctx = this.canvasElement.getContext('2d');
-    ctx.clearRect(0, 0, this.canvasElement.width, this.canvasElement.height);
+    this.signaturePad.set('minWidth', size);
   }
 
   loadImage() {
@@ -159,37 +153,29 @@ export class EnglishAkuruLiyamuPage implements OnInit {
     }
   }
 
-  selectColor(color) {
-    this.selectedColor = color;
-  }
 
-  async playMusic() {
-
+  playMusic() {
     this.play_music = true;
-    console.log('&&&&&&&&')
-    this.nativeAudio.play('uniqueId1');
-    this.nativeAudio.stop('uniqueId2');
-    this.presentAlert(this.nativeAudio);
-
+    this.nativeAudio.stop('uniqueId4');
   }
 
   stopMusic() {
     this.play_music = false;
-    this.nativeAudio.stop('uniqueId1');
-    this.nativeAudio.play('uniqueId2');
-    this.presentAlert(this.nativeAudio);
+    this.nativeAudio.play("uniqueId4");
   }
 
-  async presentAlert(msg) {
-    const alert = await this.alertCtrl.create({
-      cssClass: 'basic-alert',
-      header: 'Alert Header',
-      subHeader: 'Alert Subtitle',
-      message: msg,
-      buttons: ['OK']
-    });
+  refresh() {
+    this.signaturePad.clear();
+    this.loadImage();
+  }
 
-    await alert.present();
+  loadMusic() {
+    this.nativeAudio.play('uniqueId4');
+    this.nativeAudio.loop('uniqueId4');
+  }
+
+  ionViewWillLeave() {
+    this.nativeAudio.stop('uniqueId4');
   }
 
 }

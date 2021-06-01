@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { SinhalaAkuruLiyamuPageRoutingModule } from './sinhala-akuru-liyamu-routing.module';
 
 import { SinhalaAkuruLiyamuPage } from './sinhala-akuru-liyamu.page';
+import {SignaturePadModule} from "angular2-signaturepad";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SinhalaAkuruLiyamuPageRoutingModule
+    SinhalaAkuruLiyamuPageRoutingModule,
+    SignaturePadModule
   ],
   declarations: [SinhalaAkuruLiyamuPage]
 })
