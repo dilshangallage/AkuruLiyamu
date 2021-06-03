@@ -1,3 +1,32 @@
 .new-background-color{
   --background: #0d5171;
 }
+
+.ion-button-class {
+  background-color: #5db37e;
+  color: white;
+  border-radius: 0.5rem;
+  //width: 6rem;
+}
+
+.ion-button-class-functional {
+  background-color: #0fc8e0;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+}
+.ion-button-class-functional-mute {
+  background-color: #e00f53;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.ion-range-bar {
+  border-radius: 1rem;
+  background-color: #4caf50b5;
+  color: #eff3f5;
+  top: 0.2rem;
+  --bar-background: #e0e9ea;
+  left: 0.1rem;
+}

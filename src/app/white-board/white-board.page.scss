@@ -9,17 +9,54 @@
 //}
 .box-ion-row {
   z-index: 10;
-  background-color: red;
-  width: 100%;
-  height: 100%;
-  left: 0;
+  //background-color: red;
+  //width: 100%;
+  //height: 100%;
+  //left: 0;
 }
+.ion-slider-div {
+  //opacity: 1;
+  height: 100%;
+  animation: slideShow 1s ;
+}
+
+.ion-slider-div-hide {
+  height: 100%;
+  animation: slideHide 1s  ;
+}
+
+@keyframes slideShow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes slideHide {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  0% {
+    opacity: 0;
+  }
+}
+
 .box {
-  top: 20%;
+  z-index: 10;
+  top: 82%;
   width: 200px;
   height: 100px;
   background: url(../../assets/icon/20200614151037156.png) no-repeat;
-  animation: bear 1s steps(8) infinite,w 6s linear forwards;
+  animation: bear 1s steps(8) infinite, 1s linear forwards;
   position: absolute;
 }
 @keyframes bear {
@@ -63,4 +100,46 @@
   --background: rgba(104, 126, 161, 0.79) !important;
 }
 
+
+.ion-button-class {
+  background-color: #5db37e;
+  color: white;
+  border-radius: 0.5rem;
+  //width: 6rem;
+}
+
+.ion-button-class-functional {
+  background-color: #0fc8e0;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+}
+.ion-button-class-functional-mute {
+  background-color: #e00f53;
+  color: white;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.ion-range-bar {
+  border-radius: 1rem;
+  background-color: #4caf50b5;
+  color: #eff3f5;
+  top: 0.2rem;
+  --bar-background: #e0e9ea;
+  left: 0.1rem;
+}
+
+.animation-container {
+  top: -1%;
+  width: 100%;
+  height: 100%;
+  //background: url(../../assets/icon/snow9.jpg) no-repeat;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  //background-repeat: no-repeat;
+  //background-attachment: fixed;
+  //background-position: center;
+}
 

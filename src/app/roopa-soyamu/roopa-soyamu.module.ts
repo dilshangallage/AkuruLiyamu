@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RoopaSoyamuPageRoutingModule } from './roopa-soyamu-routing.module';
 
 import { RoopaSoyamuPage } from './roopa-soyamu.page';
+import {SignaturePadModule} from "angular2-signaturepad";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RoopaSoyamuPageRoutingModule
+    RoopaSoyamuPageRoutingModule,
+    SignaturePadModule
   ],
   declarations: [RoopaSoyamuPage]
 })

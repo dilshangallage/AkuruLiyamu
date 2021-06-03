@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {IonSlides, Platform} from "@ionic/angular";
+import {NativeAudio} from "@ionic-native/native-audio/ngx";
 
 @Component({
   selector: 'app-white-board',
@@ -11,22 +12,17 @@ export class WhiteBoardPage implements OnInit {
 
   number = 2;
   show_animation = false;
+  play_music = false;
+  button_disabled = false;
 
+  constructor(private plt: Platform, private nativeAudio: NativeAudio) {
+    plt.ready().then(() => {
+      this.nativeAudio.preloadComplex('english-2', 'assets/mp3/english-akuru/2.mp3', 1, 1, 0).then(function(success) {
+      }, function(err) {
+      });
 
-
-
-  // @ViewChild('imageCanvas', { static: false }) canvas: any;
-  // canvasElement: any;
-  // saveX: number;
-  //
-  // saveY: number;
-  // selectedColor = '#9e2956';
-  //
-  // colors = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
-  //
-  // drawing = false;
-  // lineWidth = 5;
-  constructor(private plt: Platform) { }
+    });
+  }
 
   ngOnInit() {
 
@@ -34,14 +30,17 @@ export class WhiteBoardPage implements OnInit {
 
   next(){
     this.show_animation = true;
+    this.button_disabled = true;
     this.number +=1;
     this.slides.lockSwipes(false)
     let self = this;
+    self.slides.slideNext()
+    self.slides.lockSwipes(true)
     setTimeout(() => {
+
       self.show_animation = false;
-      self.slides.slideNext()
-      self.slides.lockSwipes(true)
-    }, 3000);
+      self.button_disabled = false;
+    }, 2000);
 
 
 
@@ -55,7 +54,10 @@ export class WhiteBoardPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.slides.lockSwipes(true)
+    this.slides.lockSwipes(true);
+    setTimeout(() => {
+      this.playBackgroundSound();
+    }, 500);
     // this.slides.onlyExternal = true;
     // Set the Canvas Element and its size
     // this.canvasElement = this.canvas.nativeElement;
@@ -63,43 +65,27 @@ export class WhiteBoardPage implements OnInit {
     // this.canvasElement.height = 500;
   }
 
-  // selectColor(color) {
-  //   this.selectedColor = color;
-  // }
-  //
-  // startDrawing(ev) {
-  //   this.drawing = true;
-  //   var canvasPosition = this.canvasElement.getBoundingClientRect();
-  //
-  //   this.saveX = ev.clientX - canvasPosition.x;
-  //   this.saveY = ev.clientY - canvasPosition.y;
-  // }
-  //
-  // endDrawing() {
-  //   this.drawing = false;
-  // }
-  // moved(ev) {
-  //   if (!this.drawing) return;
-  //
-  //   var canvasPosition = this.canvasElement.getBoundingClientRect();
-  //   let ctx = this.canvasElement.getContext('2d');
-  //
-  //   let currentX = ev.clientX - canvasPosition.x;
-  //   let currentY = ev.clientY - canvasPosition.y;
-  //
-  //   ctx.lineJoin = 'round';
-  //   ctx.strokeStyle = this.selectedColor;
-  //   ctx.lineWidth = this.lineWidth;
-  //
-  //   ctx.beginPath();
-  //   ctx.moveTo(this.saveX, this.saveY);
-  //   ctx.lineTo(currentX, currentY);
-  //   ctx.closePath();
-  //
-  //   ctx.stroke();
-  //
-  //   this.saveX = currentX;
-  //   this.saveY = currentY;
-  // }
 
+  playMusic() {
+    this.play_music = true;
+    this.nativeAudio.stop('uniqueId2');
+    this.nativeAudio.stop('english-2');
+  }
+
+  stopMusic() {
+    this.play_music = false;
+    this.nativeAudio.play("uniqueId2");
+    this.nativeAudio.play("english-2");
+  }
+
+  refresh() {
+    this.nativeAudio.play("english-2");
+  }
+playBackgroundSound() {
+  this.nativeAudio.play('english-2');
+}
+
+  ionViewWillLeave() {
+    this.nativeAudio.stop('uniqueId2');
+  }
 }
