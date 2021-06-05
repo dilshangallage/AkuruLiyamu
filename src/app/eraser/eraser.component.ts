@@ -27,6 +27,11 @@ export class EraserComponent implements OnInit {
 
   async closeModel() {
     // const close: string = "Modal Removed";
+    await this.modalCtrl.dismiss(null);
+  }
+
+  async doneModel() {
+    // const close: string = "Modal Removed";
     await this.modalCtrl.dismiss(this.lineWidth);
   }
 

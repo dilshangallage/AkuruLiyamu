@@ -209,9 +209,17 @@ export class RoopaSoyamuPage implements OnInit {
     addPOst.onDidDismiss().then((modelData) => {
       if (modelData !== null) {
         // this.lineWidth = modelData.data;
-        this.signaturePad.set('minWidth', modelData.data);
-        this.signaturePad.set('penColor', 'white');
+        if (modelData.data) {
+          this.signaturePad.set('minWidth', modelData.data);
+          this.signaturePad.set('penColor', '#ffffff');
+        } else {
+          this.signaturePad.set('minWidth', this.lineWidth);
+          this.signaturePad.set('penColor', this.color);
+          this.disabled_pencil = false
+        }
       } else {
+        this.signaturePad.set('minWidth', this.lineWidth);
+        this.signaturePad.set('penColor', this.color);
         this.disabled_pencil = false;
       }
     });

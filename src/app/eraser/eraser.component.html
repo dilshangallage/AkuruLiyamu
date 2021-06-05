@@ -2,7 +2,8 @@
   <ion-grid class="pd-xxxl-7 align-c">
     <div>
       <div slot="end" class="close-btn">
-        <ion-icon name="close-outline" (click)="closeModel()"></ion-icon>
+        <ion-icon name="checkmark-outline" (click)="doneModel()" style="color: #0ed85f;"></ion-icon>
+        <ion-icon name="close-outline" (click)="closeModel()" style="color: #f33f3f;"></ion-icon>
       </div>
       <ion-row >
         <ion-range snaps="true" ticks="false" color="danger" class="ion-range-bar-eraser"  min="2" max="16" [(ngModel)]="lineWidth" (ionChange)="changePenSize()">
