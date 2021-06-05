@@ -15,40 +15,40 @@ export class EnglishLettersPage implements OnInit {
   constructor(private nativeAudio: NativeAudio) { }
 
   ngOnInit() {
-    this.slides.lockSwipes(true)
+    // this.slides.lockSwipes(true)
   }
 
   next(){
     this.number +=1;
-    this.slides.lockSwipes(false)
+    // this.slides.lockSwipes(false)
     this.slides.slideNext()
-    this.slides.lockSwipes(true)
+    // this.slides.lockSwipes(true)
   }
 
   prev(){
     this.number -=1;
-    this.slides.lockSwipes(false)
+    // this.slides.lockSwipes(false)
     this.slides.slidePrev()
-    this.slides.lockSwipes(true)
+    // this.slides.lockSwipes(true)
   }
 
 
   playMusic() {
     this.play_music = true;
-    this.nativeAudio.stop('uniqueId2');
+    // this.nativeAudio.stop('uniqueId2');
   }
 
   stopMusic() {
-    this.play_music = false;
-    this.nativeAudio.play("uniqueId2");
+    // this.play_music = false;
+    // this.nativeAudio.play("uniqueId2");
   }
 
   refresh() {
-    this.nativeAudio.play("uniqueId2");
+    // this.nativeAudio.play("uniqueId2");
   }
 
   ionViewWillLeave() {
-    this.nativeAudio.stop('uniqueId2');
+    // this.nativeAudio.stop('uniqueId2');
   }
 
 }

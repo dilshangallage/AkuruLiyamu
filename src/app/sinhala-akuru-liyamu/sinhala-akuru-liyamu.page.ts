@@ -34,7 +34,7 @@ export class SinhalaAkuruLiyamuPage implements OnInit {
   saveY: number;
   selectedColor = '#9e2956';
 
-  colors = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
+  colors = [ '#ffffff', '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' , '#000000'];
 
   drawing = false;
   lineWidth = 5;

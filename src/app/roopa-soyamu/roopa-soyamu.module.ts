@@ -8,6 +8,7 @@ import { RoopaSoyamuPageRoutingModule } from './roopa-soyamu-routing.module';
 
 import { RoopaSoyamuPage } from './roopa-soyamu.page';
 import {SignaturePadModule} from "angular2-signaturepad";
+import {EraserComponent} from "../eraser/eraser.component";
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import {SignaturePadModule} from "angular2-signaturepad";
     RoopaSoyamuPageRoutingModule,
     SignaturePadModule
   ],
-  declarations: [RoopaSoyamuPage]
+  declarations: [RoopaSoyamuPage, EraserComponent]
 })
 export class RoopaSoyamuPageModule {}

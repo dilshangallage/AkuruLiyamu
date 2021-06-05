@@ -19,7 +19,7 @@
   </div>
   <div style="height: 80%">
     <ion-row>
-      <ion-col size="2" style="margin-top: 0.3rem;">
+      <ion-col size="2" class="border-style">
         <ion-row *ngFor="let color of colors" class="color-block" tappable
                  (click)="selectColor(color)">
           <div style="width: 100%; display: inline-flex;">
@@ -32,14 +32,14 @@
           </div>
         </ion-row>
       </ion-col>
-      <ion-col size="10" class="">
+      <ion-col size="10" class="border-style">
         <signature-pad id="signature-pad" class="signature-pad-class" [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"
                        (window:resize)="resizeSignaturePad()"></signature-pad>
       </ion-col>
     </ion-row>
   </div>
 </ion-content>
-<ion-footer style="background-color: #083e58d6">
+<ion-footer style="background-color: #247094">
   <ion-row>
     <ion-col size="3">
       <ion-button type="submit" float-left ion-button  fill="clear" class="btnPrev ion-button-class" (click)="prev()" [disabled]="number== -1">Prev</ion-button>

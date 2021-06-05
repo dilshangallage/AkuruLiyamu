@@ -1,7 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {SignaturePad} from "angular2-signaturepad";
-import {IonSlides, Platform} from "@ionic/angular";
+import {AlertController, IonSlides, ModalController, Platform} from "@ionic/angular";
 import {NativeAudio} from "@ionic-native/native-audio/ngx";
+import {EraserComponent} from "../eraser/eraser.component";
 
 @Component({
   selector: 'app-roopa-soyamu',
@@ -36,15 +37,17 @@ export class RoopaSoyamuPage implements OnInit {
   saveY: number;
   selectedColor = '#9e2956';
 
-  colors = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
+  colors = [ '#000000', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
 
   drawing = false;
   lineWidth = 5;
+  color = 'black';
   number = 53;
+  disabled_pencil = false;
 
   play_music = false;
 
-  constructor(private platform: Platform, private nativeAudio: NativeAudio) {
+  constructor(private platform: Platform, private nativeAudio: NativeAudio, private alertCtrl: AlertController, private modalController: ModalController) {
     // this.presentAlert('OK');
     platform.ready().then(() => {
       this.nativeAudio.preloadComplex('uniqueId2', 'assets/mp3/background-music/song2.mp3', 1, 1, 0).then(function(success) {
@@ -70,9 +73,11 @@ export class RoopaSoyamuPage implements OnInit {
 
   changePenSize() {
     this.signaturePad.set('minWidth', this.lineWidth);
+    this.signaturePad.set('penColor', this.color);
   }
 
   selectColor(color) {
+    this.color = color;
     this.signaturePad.set('penColor', color);
   }
 
@@ -127,7 +132,7 @@ export class RoopaSoyamuPage implements OnInit {
 
   changeSize(size){
     this.lineWidth = size;
-    this.signaturePad.set('minWidth', size);
+    // this.signaturePad.set('minWidth', size);
   }
 
   loadImage() {
@@ -174,6 +179,8 @@ export class RoopaSoyamuPage implements OnInit {
     const data = this.signaturePad.toData();
     if (data && data.length > 0) {
       this.redoList.push(data[data.length - 1])
+      // this.redoList.push({d: data[data.length - 1], s: this.lineWidth})
+      console.log(data)
       data.pop();
       this.signaturePad.fromData(data);
     }
@@ -185,6 +192,37 @@ export class RoopaSoyamuPage implements OnInit {
       data.push(this.redoList.pop())
       this.signaturePad.fromData(data);
     }
+  }
+
+  async eraseDrwing() {
+
+    let addPOst = await this.modalController.create({
+      component: EraserComponent,
+      componentProps: {
+        'lineWidth': 5
+      },
+      cssClass: 'reg-modal',
+      backdropDismiss: false
+    });
+
+    this.disabled_pencil = true;
+    addPOst.onDidDismiss().then((modelData) => {
+      if (modelData !== null) {
+        // this.lineWidth = modelData.data;
+        this.signaturePad.set('minWidth', modelData.data);
+        this.signaturePad.set('penColor', 'white');
+      } else {
+        this.disabled_pencil = false;
+      }
+    });
+
+    return await addPOst.present();
+
+  }
+
+  drawingPencil() {
+    this.signaturePad.set('penColor', this.color);
+    this.disabled_pencil = false;
   }
 
 }

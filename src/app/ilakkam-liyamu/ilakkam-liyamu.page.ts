@@ -35,11 +35,11 @@ export class IlakkamLiyamuPage implements OnInit {
   saveY: number;
   selectedColor = '#9e2956';
 
-  colors = [ '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' ];
+  colors = [ '#ffffff', '#9e2956', '#c2281d', '#de722f', '#edbf4c', '#5db37e', '#459cde', '#4250ad', '#802fa3' , '#000000'];
 
   drawing = false;
   lineWidth = 5;
-  number = 53;
+  number = 52;
 
   play_music = false;
 
@@ -112,13 +112,13 @@ export class IlakkamLiyamuPage implements OnInit {
 
 
   next(){
-    ( this.number < 63)? this.number += 1: this.number = 63;
+    ( this.number < 62)? this.number += 1: this.number = 62;
     // this.slides.slideNext();
     this.loadImage();
   }
 
   prev(){
-    (this.number > 53) ? this.number -= 1 : this.number = 53;
+    (this.number > 52) ? this.number -= 1 : this.number = 52;
     // this.slides.slidePrev();
     this.loadImage();
 
